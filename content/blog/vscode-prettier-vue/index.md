@@ -98,9 +98,25 @@ arrowParens: 'avoid'
 },
 ```
 
-## 將原有的 Vue 專案改成使用 Prettier
+## 舊 Vue 專案改用 Prettier
 
-這邊紀錄一下我將原本的 Vue 專案改成使用 Prettier 所修改的地方：
+用過之後覺得 Prettier 實在厲害了，決定將原本的專案也改成用 Prettier 吧！
+
+在開始之前，先聽聽大神怎麼說：
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">1. Open your ESLint config<br>2. Disable all styling rules (or add eslint-config-prettier which does that)<br>3. Install Prettier<br><br>You’ll thank me.</p>&mdash; Dan Abramov (@dan_abramov) <a href="https://twitter.com/dan_abramov/status/1086215004808978434?ref_src=twsrc%5Etfw">January 18, 2019</a></blockquote>
+
+### 方法 1. Disable all styling rules
+
+> -> **移除 @vue/standard，並加入 @vue/prettier**
+
+```bash
+yarn add prettier --dev --exact
+yarn add --dev @vue/eslint-config-prettier
+yarn remove @vue/eslint-config-standard
+```
+
+安裝 prettier, 移除 standard
 
 ```diff
 'extends': [
@@ -116,12 +132,48 @@ arrowParens: 'avoid'
 "scripts": {
 + "format": "prettier --write 'src/**/*.{js,vue}'"
 },
+```
 
-"dependencies": {
-+ "prettier": "1.16.0",
-+ "@vue/eslint-config-prettier": "^4.0.1",
-- "@vue/eslint-config-standard": "^4.0.0",
-}
+package.json
+
+```yaml
+# .prettierrc or .prettierrc.yaml
+# printWidth: 80
+tabWidth: 2
+semi: false
+singleQuote: true
+# trailingComma: 'es5'
+# bracketSpacing: true
+arrowParens: 'avoid'
+```
+
+.prettierrc.yaml
+
+### 方法 2. add eslint-config-prettier which does that
+
+> 使用 `eslint-config-prettier` 把**不相容**的 ESLint 規則關掉～用這個方式可以留下大部分的規則！
+
+```bash
+yarn add prettier --dev --exact
+yarn add -D eslint-plugin-prettier eslint-config-prettier
+```
+
+```diff
+  extends: [
+    'plugin:vue/essential',
+    '@vue/standard',
++   'plugin:prettier/recommended',
++   'prettier/standard',
++   'prettier/vue'
+  ],
+```
+
+.eslintrc.js
+
+```diff
+"scripts": {
++ "format": "prettier --write 'src/**/*.{js,vue}'"
+},
 ```
 
 package.json
