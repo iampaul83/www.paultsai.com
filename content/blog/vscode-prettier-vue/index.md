@@ -97,3 +97,44 @@ arrowParens: 'avoid'
   "format": "prettier --write 'src/**/*.{js,vue}'"
 },
 ```
+
+## 將原有的 Vue 專案改成使用 Prettier
+
+這邊紀錄一下我將原本的 Vue 專案改成使用 Prettier 所修改的地方：
+
+```diff
+'extends': [
+  'plugin:vue/essential',
+- '@vue/standard'
++ '@vue/prettier'
+],
+```
+
+.eslintrc.js
+
+```diff
+"scripts": {
++ "format": "prettier --write 'src/**/*.{js,vue}'"
+},
+
+"dependencies": {
++ "prettier": "1.16.0",
++ "@vue/eslint-config-prettier": "^4.0.1",
+- "@vue/eslint-config-standard": "^4.0.0",
+}
+```
+
+package.json
+
+```yaml
+# .prettierrc or .prettierrc.yaml
+# printWidth: 80
+tabWidth: 2
+semi: false
+singleQuote: true
+# trailingComma: 'es5'
+# bracketSpacing: true
+arrowParens: 'avoid'
+```
+
+.prettierrc.yaml

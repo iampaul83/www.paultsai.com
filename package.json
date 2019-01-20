@@ -1,12 +1,9 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "paul-tsai-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "My Blog",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "author": "Paul Tsai <iampaul783@gmail.com>",
   "dependencies": {
     "gatsby": "^2.0.76",
     "gatsby-image": "^2.0.22",
@@ -44,9 +41,9 @@
     "eslint-plugin-react": "^7.11.1",
     "prettier": "1.16.0"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://www.paultsai.com/",
   "keywords": [
-    "gatsby"
+    "blog"
   ],
   "license": "MIT",
   "main": "n/a",

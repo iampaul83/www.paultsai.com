@@ -1,6 +1,6 @@
 # TODO
 
-- add todo here
+- 新增 disqus
 
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
