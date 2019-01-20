@@ -20,6 +20,10 @@ function SEO({ description, lang, meta, keywords, title }) {
             defaultTitle={data.site.siteMetadata.title}
             meta={[
               {
+                name: `google-site-verification`,
+                content: data.site.siteMetadata.googleSiteVerification,
+              },
+              {
                 name: `description`,
                 content: metaDescription,
               },
@@ -91,6 +95,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        googleSiteVerification
       }
     }
   }

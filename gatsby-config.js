@@ -6,6 +6,7 @@ module.exports = {
     author: `Paul Tsai`,
     description: `個人技術文章部落格`,
     siteUrl: siteUrl,
+    googleSiteVerification: `IN_aHaSWALMsd6V6_GTj8zkCqgtx1G6SB2Dw_hmoWPE`,
     // social: {
     //   twitter: `kylemathews`,
     // },
@@ -109,7 +110,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-132827571-1`,
       },
     },
     `gatsby-plugin-feed`,

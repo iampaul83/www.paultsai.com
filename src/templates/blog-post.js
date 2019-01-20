@@ -22,6 +22,18 @@ class BlogPostTemplate extends React.Component {
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
+          meta={
+            post.frontmatter.cover
+              ? [
+                  {
+                    property: `og:image`,
+                    content: `${this.props.data.site.siteMetadata.siteUrl}${
+                      post.frontmatter.cover
+                    }`,
+                  },
+                ]
+              : []
+          }
         />
         <h1>{post.frontmatter.title}</h1>
         <p
@@ -78,6 +90,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
